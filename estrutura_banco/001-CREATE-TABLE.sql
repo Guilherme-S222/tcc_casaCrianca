@@ -37,8 +37,8 @@ CREATE TABLE `endereco` (
 CREATE TABLE `internacao` (
 	`intern_id` int NOT NULL AUTO_INCREMENT UNIQUE,
 	`intern_data` DATETIME NOT NULL,
-	`intern_dtsaida` DATETIME NOT NULL,
-	`intern_tpsaida` varchar (15) NOT NULL,
+	`intern_dtsaida` DATETIME NULL,
+	`intern_tpsaida` varchar (15) NULL,
 	`medic_crm_intern` varchar (10) NOT NULL,
 	`user_id_intern` int NOT NULL,
 	`pct_pront_intern` int NOT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE `casa_crianca` (
 
 CREATE TABLE `internacao_cid` (
 	`intercid_id` int NOT NULL AUTO_INCREMENT UNIQUE,
-	`intercid_evento` varchar (30) NOT NULL,
+	`intercid_evento` varchar (100) NOT NULL,
 	`intercid_status` varchar (10) NOT NULL,
 	`intern_id_intercid` int NOT NULL,
 	`cid_id_intercid` int NOT NULL,

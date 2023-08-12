@@ -16,55 +16,53 @@ const usuario = require('../controllers/usuario');
 
 // definição de rotas
 router.get('/casa_crianca', casa_crianca.listarCasaCrianca);
-//cadastrar
-//editar
-//excluir
+router.post('/casa_crianca', casa_crianca.cadastrarCasaCrianca);
+router.patch('/casa_crianca', casa_crianca.editarCasaCrianca);
+router.delete('/casa_crianca', casa_crianca.excluirCasaCrianca);
 
 router.get('/cid', cid.listarCid);
-//cadastrar
-//editar
-//excluir
+router.post('/cid', cid.cadastrarCid);
+router.patch('/cid', cid.editarCid);
+router.delete('/cid', cid.excluirCid);
 
 router.get('/endereco', endereco.listarEndereco);
-//cadastrar
-//editar
-//excluir
+router.post('/endereco', endereco.cadastrarEndereco);
+router.patch('/endereco', endereco.editarEndereco);
+router.delete('/endereco', endereco.excluirEndereco);
 
 router.get('/internacao_cid', internacaoCid.listarInternacaoCid);
-//cadastrar
-//editar
-//excluir
+router.post('/internacao_cid', internacaoCid.cadastrarInternacaoCid);
+router.patch('/internacao_cid', internacaoCid.editarInternacaoCid);
+router.delete('/internacao_cid', internacaoCid.excluirInternacaoCid);
 
 router.get('/internacao', internacao.listarInternacao);
-//cadastrar
-//editar
-//excluir
+router.post('/internacao', internacao.cadastrarInternacao);
+router.patch('/internacao', internacao.editarInternacao);
+router.delete('/internacao', internacao.exluirInternacao);
 
 router.get('/medico', medico.listarMedico);
-//cadastrar
-//editar
-//excluir
+router.post('/medico', medico.cadastrarMedico);
+router.patch('/medico', medico.editarMedico);
+router.delete('/medico', medico.excluirMedico);
 
 router.get('/pacientes', pacientes.listarPacientes);
-//cadastrar
-//editar
-//excluir
+router.post('/pacientes', pacientes.cadastrarPacientes);
+router.patch('/pacientes', pacientes.editarPacientes);
+router.delete('/pacientes', pacientes.excluirPacientes);
 
 router.get('/prorrogacao', prorrogacao.listarProrrogacao);
-//cadastrar
-//editar
-//excluir
+router.post('/prorrogacao', prorrogacao.cadastrarProrrogacao);
+router.patch('/prorrogacao', prorrogacao.editarProrrogacao);
+router.delete('/prorrogacao', prorrogacao.excluirProrrogacao);
 
 router.get('/transferencia', transferencia.listarTransferencia);
-//cadastrar
-//editar
-//excluir
+router.post('/transferencia', transferencia.cadastrarTransferencia);
+router.patch('/transferencia', transferencia.editarTransferencia);
+router.delete('/transferencia', transferencia.excluirTransferencia);
 
 router.get('/usuario', usuario.listarUsuario);
-//cadastrar
-//editar
-//excluir
-
-
+router.post('/usuario', usuario.cadastrarUsuario);
+router.patch('/usuario', usuario.editarUsuario);
+router.delete('/usuario', usuario.excluirUsuario);
 
 module.exports = router;

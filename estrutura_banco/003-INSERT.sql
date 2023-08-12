@@ -1,7 +1,7 @@
 /////////////////////////INSERT/////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-INSERT INTO 'pacientes' (pct_pront,pct_cpf,pct_nome,pct_sexo,pct_sus,pct_cns,pct_dtnasc,pct_aih,pct_bpc,pct_aposent,pct_filiacao,pct_natural,pct_cor,pct_rg,pct_dataexp,pct_orgemissor,pct_dtcad)
+INSERT INTO pacientes (pct_pront,pct_cpf,pct_nome,pct_sexo,pct_sus,pct_cns,pct_dtnasc,pct_aih,pct_bpc,pct_aposent,pct_filiacao,pct_natural,pct_cor,pct_rg,pct_dataexp,pct_orgemissor,pct_dtcad)
 VALUES ("","","","","","","","","","","","","","","","","");
 
 
@@ -23,7 +23,7 @@ VALUES ('5', '23456789012', 'Carlos Ferreira', 'Masculino', '234567890123456', '
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-INSERT INTO 'endereco'
+INSERT INTO endereco
 (enderec_id,enderec_rua,enderec_num,enderec_bairro,enderec_complem,enderec_cidade,enderec_cep,enderec_estado,pct_pront_enderec)
 VALUES ("","","","","","","","","");
 
@@ -46,35 +46,35 @@ VALUES ('Rua Pereira Barreto', 202, 'Bairro V', 'Bloco C', 'Assis', '56789012', 
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-INSERT INTO 'internacao'
+INSERT INTO internacao
 (intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern)
 VALUES ("#","0000-00-00 00:00:00","0000-00-00 00:00:00","###","###","###","#");
 
 
-INSERT INTO 'internacao'
+INSERT INTO internacao
 (intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern)
 VALUES ("1","2023-08-01 08:00:00", NULL,NULL,"12345","1","1");
 
-INSERT INTO 'internacao'
+INSERT INTO internacao
 (intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern)
 VALUES ("2","2023-08-01 08:30:00",NULL,NULL,"54321","1","2");
 
-INSERT INTO 'internacao'
+INSERT INTO internacao
 (intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern)
 VALUES ("3","2023-08-03 09:15:00",NULL,NULL,"67890","2","3");
 
-INSERT INTO 'internacao'
+INSERT INTO internacao
 (intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern)
 VALUES ("4","2023-08-05 09:00:00",NULL,NULL,"23456","5","4");
 
-INSERT INTO 'internacao'
+INSERT INTO internacao
 (intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern)
 VALUES ("5","2023-08-08 15:00:00",NULL,NULL,"67890","4","5");
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-INSERT INTO 'cid'
+INSERT INTO cid
 (cid_id,cid_cid,cid_descri)
 VALUES ("","","");
 
@@ -112,7 +112,7 @@ VALUES (10, 'K21', 'Doença do refluxo gastroesofágico');
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-INSERT INTO 'prorrogacao'
+INSERT INTO prorrogacao
 (prorrog_id,prorrog_data,intern_id_prorrog,user_id_prorrog,medic_crm_prorrog)
 VALUES ("","","","","");
 
@@ -122,7 +122,7 @@ VALUES ("","","","","");
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-INSERT INTO 'transferencia'
+INSERT INTO transferencia
 (transf_id,transf_data,medic_crm_transf,intern_id_transf,user_id_transf)
 VALUES ("","","","","");
 
@@ -132,45 +132,45 @@ VALUES ("","","","","");
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-INSERT INTO 'medico'
+INSERT INTO medico
 (medic_crm,medic_nome,medic_cpf,medic_especi,medic_tel)
 VALUES ("","","","","");
 
 
 INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('12345', 'Dr. João Silva', '12345678901', 'Cardiologia', '(11) 1234-5678');
+VALUES ('12345', 'Dr. João Silva', '12345678901', 'Cardiologia', '11 12345678');
 
 INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('54321', 'Dra. Maria Santos', '98765432101', 'Clínica Geral', '(22) 2345-6789');
+VALUES ('54321', 'Dra. Maria Santos', '98765432101', 'Clínica Geral', '22 23456789');
 
 INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('67890', 'Dr. Pedro Oliveira', '45678912301', 'Ortopedia', '(33) 3456-7890');
+VALUES ('67890', 'Dr. Pedro Oliveira', '45678912301', 'Ortopedia', '33 34567890');
 
 INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('45678', 'Dra. Ana Souza', '78901234501', 'Ginecologia', '(44) 4567-8901');
+VALUES ('45678', 'Dra. Ana Souza', '78901234501', 'Ginecologia', '44 45678901');
 
 INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('98765', 'Dr. Marcos Ferreira', '23456789012', 'Dermatologia', '(55) 5678-9012');
+VALUES ('98765', 'Dr. Marcos Ferreira', '23456789012', 'Dermatologia', '55 56789012');
 
 INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('23456', 'Dra. Carla Mendes', '34567890123', 'Pediatria', '(66) 6789-0123');
+VALUES ('23456', 'Dra. Carla Mendes', '34567890123', 'Pediatria', '66 67890123');
 
 INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('78901', 'Dr. Lucas Almeida', '12345678901', 'Neurologia', '(77) 7890-1234');
+VALUES ('78901', 'Dr. Lucas Almeida', '12345678601', 'Neurologia', '77 78901234');
 
 INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('34567', 'Dra. Sandra Lima', '98765432101', 'Oftalmologia', '(88) 8901-2345');
+VALUES ('34567', 'Dra. Sandra Lima', '98765442101', 'Oftalmologia', '88 89012345');
 
 INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('89012', 'Dr. Rafael Souza', '45678912301', 'Cirurgia Geral', '(99) 9012-3456');
+VALUES ('89012', 'Dr. Rafael Souza', '95678912301', 'Cirurgia Geral', '99 90123456');
 
 INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('67890', 'Dra. Camila Martins', '78901234501', 'Psiquiatria', '(00) 1234-5678');
+VALUES ('66890', 'Dra. Camila Martins', '78701234501', 'Psiquiatria', '00 12345678');
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-INSERT INTO 'usuario'
+INSERT INTO usuario
 (user_id,user_nome,user_senha,insti_id_user)
 VALUES ("","","","");
 
@@ -193,35 +193,35 @@ VALUES (5, 'lucas', 'senha890', 1);
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-INSERT INTO 'casa_crianca'
+INSERT INTO casa_crianca
 (insti_id,insti_nome,insti_cnpj)
 VALUES ("1","Casa da Crianca de Tupa","12345678000100");
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-INSERT INTO 'internacao_cid'
+INSERT INTO internacao_cid
 (intercid_id, intercid_evento, intercid_status, intern_id_intercid, cid_id_intercid)
 VALUES ("#","###","###","#","#");
 
 
-INSERT INTO 'internacao_cid'
+INSERT INTO internacao_cid
 (intercid_id, intercid_evento, intercid_status, intern_id_intercid, cid_id_intercid)
 VALUES ("1","Febre tifoide","ATIVO","1","1");
 
-INSERT INTO 'internacao_cid'
+INSERT INTO internacao_cid
 (intercid_id, intercid_evento, intercid_status, intern_id_intercid, cid_id_intercid)
 VALUES ("2","Infecção pelo HIV","ATIVO","2","2");
 
-INSERT INTO 'internacao_cid'
+INSERT INTO internacao_cid
 (intercid_id, intercid_evento, intercid_status, intern_id_intercid, cid_id_intercid)
 VALUES ("3","Tumor maligno da mama","ATIVO","3","3");
 
-INSERT INTO 'internacao_cid'
+INSERT INTO internacao_cid
 (intercid_id, intercid_evento, intercid_status, intern_id_intercid, cid_id_intercid)
 VALUES ("4","Anemia por deficiência de ferro","ATIVO","4","4");
 
-INSERT INTO 'internacao_cid'
+INSERT INTO internacao_cid
 (intercid_id, intercid_evento, intercid_status, intern_id_intercid, cid_id_intercid)
 VALUES ("5","Diabetes mellitus tipo 2","ATIVO","5","5");
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
