@@ -15,21 +15,21 @@ module.exports = {
     },
     async cadastrarUsuario(request, response){
         try {
-            return response.status(200).json({confirma:'Usuário'});
+            return response.status(200).json({confirma:'cadastrarUsuário'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async editarUsuario(request, response){
         try {
-            return response.status(200).json({confirma:'Usuário'});
+            return response.status(200).json({confirma:'editarUsuário'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async excluirUsuario(request, response){
         try {
-            return response.status(200).json({confirma:'Usuário'});
+            return response.status(200).json({confirma:'excluirUsuário'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }

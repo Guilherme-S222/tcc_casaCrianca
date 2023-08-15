@@ -15,21 +15,21 @@ module.exports = {
     },
     async cadastrarInternacaoCid(request, response){
         try {
-            return response.status(200).json({confirma:'Internação Cid'});
+            return response.status(200).json({confirma:'cadastrarInternação Cid'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async editarInternacaoCid(request, response){
         try {
-            return response.status(200).json({confirma:'Internação Cid'});
+            return response.status(200).json({confirma:'editarInternação Cid'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async excluirInternacaoCid(request, response){
         try {
-            return response.status(200).json({confirma:'Internação Cid'});
+            return response.status(200).json({confirma:'excluirInternação Cid'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }

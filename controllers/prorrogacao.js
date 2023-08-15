@@ -15,21 +15,21 @@ module.exports = {
     },
     async cadastrarProrrogacao(request, response){
         try {
-            return response.status(200).json({confirma:'Prorrogação'});
+            return response.status(200).json({confirma:'cadastrarProrrogação'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async editarProrrogacao(request, response){
         try {
-            return response.status(200).json({confirma:'Prorrogação'});
+            return response.status(200).json({confirma:'editarProrrogação'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async excluirProrrogacao(request, response){
         try {
-            return response.status(200).json({confirma:'Prorrogação'});
+            return response.status(200).json({confirma:'excluirProrrogação'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }

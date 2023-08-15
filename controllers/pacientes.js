@@ -15,21 +15,21 @@ module.exports = {
     },
     async cadastrarPacientes(request, response){
         try {
-            return response.status(200).json({confirma:'Pacientes'});
+            return response.status(200).json({confirma:'cadastrarPacientes'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async editarPacientes(request, response){
         try {
-            return response.status(200).json({confirma:'Pacientes'});
+            return response.status(200).json({confirma:'editarPacientes'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async excluirPacientes(request, response){
         try {
-            return response.status(200).json({confirma:'Pacientes'});
+            return response.status(200).json({confirma:'excluirPacientes'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }

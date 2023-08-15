@@ -15,21 +15,21 @@ module.exports = {
     },
     async cadastrarMedico(request, response){
         try {
-            return response.status(200).json({confirma:'Médico'});
+            return response.status(200).json({confirma:'cadastrarMédico'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async editarMedico(request, response){
         try {
-            return response.status(200).json({confirma:'Médico'});
+            return response.status(200).json({confirma:'editarMédico'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async excluirMedico(request, response){
         try {
-            return response.status(200).json({confirma:'Médico'});
+            return response.status(200).json({confirma:'excluirMédico'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }

@@ -15,21 +15,21 @@ module.exports = {
     },
     async cadastrarInternacao(request, response){
         try {
-            return response.status(200).json({confirma:'Internação'});
+            return response.status(200).json({confirma:'cadastrarInternação'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async editarInternacao(request, response){
         try {
-            return response.status(200).json({confirma:'Internação'});
+            return response.status(200).json({confirma:'editarInternação'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async exluirInternacao(request, response){
         try {
-            return response.status(200).json({confirma:'Internação'});
+            return response.status(200).json({confirma:'excluirInternação'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }

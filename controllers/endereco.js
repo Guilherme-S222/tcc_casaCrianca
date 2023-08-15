@@ -15,21 +15,21 @@ module.exports = {
     },
     async cadastrarEndereco(request, response){
         try {
-            return response.status(200).json({confirma:'Endereço'});
+            return response.status(200).json({confirma:'cadastrarEndereço'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async editarEndereco(request, response){
         try {
-            return response.status(200).json({confirma:'Endereço'});
+            return response.status(200).json({confirma:'editarEndereço'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async excluirEndereco(request, response){
         try {
-            return response.status(200).json({confirma:'Endereço'});
+            return response.status(200).json({confirma:'excluirEndereço'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }

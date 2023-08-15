@@ -15,21 +15,21 @@ module.exports = {
     },
     async cadastrarTransferencia(request, response){
         try {
-            return response.status(200).json({confirma:'Transferência'});
+            return response.status(200).json({confirma:'cadastrarTransferência'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async editarTransferencia(request, response){
         try {
-            return response.status(200).json({confirma:'Transferência'});
+            return response.status(200).json({confirma:'editarTransferência'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async excluirTransferencia(request, response){
         try {
-            return response.status(200).json({confirma:'Transferência'});
+            return response.status(200).json({confirma:'excluirTransferência'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }

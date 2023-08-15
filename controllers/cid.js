@@ -15,21 +15,21 @@ module.exports = {
     },
     async cadastrarCid(request, response){
         try {
-            return response.status(200).json({confirma:'Cid'});
+            return response.status(200).json({confirma:'cadastrarCid'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async editarCid(request, response){
         try {
-            return response.status(200).json({confirma:'Cid'});
+            return response.status(200).json({confirma:'editarCid'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async excluirCid(request, response){
         try {
-            return response.status(200).json({confirma:'Cid'});
+            return response.status(200).json({confirma:'excluirCid'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
