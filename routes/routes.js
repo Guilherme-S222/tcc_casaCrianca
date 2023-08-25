@@ -62,7 +62,7 @@ router.delete('/transferencia', transferencia.excluirTransferencia);
 
 router.get('/usuario', usuario.listarUsuario);
 router.post('/usuario', usuario.cadastrarUsuario);
-router.patch('/usuario', usuario.editarUsuario);
+router.patch('/usuario/:user_id', usuario.editarUsuario);
 router.delete('/usuario', usuario.excluirUsuario);
 
 module.exports = router;

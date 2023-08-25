@@ -33,13 +33,21 @@ module.exports = {
     },
     async editarUsuario(request, response){
         try {
-            return response.status(200).json({confirma:'editarUsuário'});
+            const { user_nome,user_senha,insti_id_user } = request.body;
+            const { user_id } = request.params;
+            const sql = 'UPDATE usuario SET user_nome = ?, user_senha = ?, insti_id_user = ? WHERE user_id = ?;';
+            const values = [user_nome,user_senha,insti_id_user, user_id];
+            const atualizacao = await db.query(sql, values);
+
+            return response.status(200).json({confirma:'Sucesso', message: 'Dados atualizados'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
     async excluirUsuario(request, response){
         try {
+            const { user_id } = request.params;
+            //PAREI AQUI
             return response.status(200).json({confirma:'excluirUsuário'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
