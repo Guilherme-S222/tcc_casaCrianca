@@ -17,18 +17,18 @@ const usuario = require('../controllers/usuario');
 // definição de rotas
 router.get('/casa_crianca', casa_crianca.listarCasaCrianca);
 router.post('/casa_crianca', casa_crianca.cadastrarCasaCrianca);
-router.patch('/casa_crianca', casa_crianca.editarCasaCrianca);
-router.delete('/casa_crianca', casa_crianca.excluirCasaCrianca);
+router.patch('/casa_crianca/:insti_id', casa_crianca.editarCasaCrianca);
+router.delete('/casa_crianca/:insti_id', casa_crianca.excluirCasaCrianca);
 
 router.get('/cid', cid.listarCid);
 router.post('/cid', cid.cadastrarCid);
-router.patch('/cid', cid.editarCid);
-router.delete('/cid', cid.excluirCid);
+router.patch('/cid/:cid_id', cid.editarCid);
+router.delete('/cid/:cid_id', cid.excluirCid);
 
 router.get('/endereco', endereco.listarEndereco);
 router.post('/endereco', endereco.cadastrarEndereco);
-router.patch('/endereco', endereco.editarEndereco);
-router.delete('/endereco', endereco.excluirEndereco);
+router.patch('/endereco/:enderec_id', endereco.editarEndereco);
+router.delete('/endereco/:enderec_id', endereco.excluirEndereco);
 
 router.get('/internacao_cid', internacaoCid.listarInternacaoCid);
 router.post('/internacao_cid', internacaoCid.cadastrarInternacaoCid);
@@ -63,6 +63,6 @@ router.delete('/transferencia', transferencia.excluirTransferencia);
 router.get('/usuario', usuario.listarUsuario);
 router.post('/usuario', usuario.cadastrarUsuario);
 router.patch('/usuario/:user_id', usuario.editarUsuario);
-router.delete('/usuario', usuario.excluirUsuario);
+router.delete('/usuario/:user_id', usuario.excluirUsuario);
 
 module.exports = router;

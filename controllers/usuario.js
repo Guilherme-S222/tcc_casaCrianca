@@ -47,8 +47,12 @@ module.exports = {
     async excluirUsuario(request, response){
         try {
             const { user_id } = request.params;
-            //PAREI AQUI
-            return response.status(200).json({confirma:'excluirUsuário'});
+            
+            const sql  = 'DELETE FROM usuario WHERE user_id = ?';
+            const values = [user_id];
+            await db.query(sql, values);
+
+            return response.status(200).json({confirma:'Sucesso', message:'Usuario com id ' + user_id + ' excluído com sucesso'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
