@@ -20,7 +20,6 @@ module.exports = {
             const values = [enderec_rua, enderec_num, enderec_bairro, enderec_complem, enderec_cidade, enderec_cep, enderec_estado, pct_pront_enderec];
             const confirmacao = await db.query(sql, values);
             const enderec_id = confirmacao[0].insertId;
-
             return response.status(200).json({confirma:'Cadastro de ### realizado com sucesso', message: enderec_id});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
@@ -33,7 +32,6 @@ module.exports = {
             const sql = 'UPDATE endereco SET enderec_rua = ?, enderec_num = ?, enderec_bairro = ?, enderec_complem = ?, enderec_cidade = ?, enderec_cep = ?, enderec_estado = ?, pct_pront_enderec = ? WHERE enderec_id = ?;';
             const values = [enderec_rua, enderec_num, enderec_bairro, enderec_complem, enderec_cidade, enderec_cep, enderec_estado, pct_pront_enderec, enderec_id];
             const atualizacao = await db.query(sql, values);
-
             return response.status(200).json({confirma:'Sucesso', message: 'Dados atualizados'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
@@ -46,7 +44,6 @@ module.exports = {
             const sql = 'DELETE FROM endereco WHERE enderec_id = ?';
             const values = [enderec_id];
             await db.query(sql, values);
-
             return response.status(200).json({confirma:'Sucesso', message: 'Endereço com id' + enderec_id + ' excluido com sucesso'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});

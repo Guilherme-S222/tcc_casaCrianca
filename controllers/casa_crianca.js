@@ -21,7 +21,6 @@ module.exports = {
             const values = [insti_nome, insti_cnpj];
             const confirmacao = await db.query(sql, values);
             const insti_id = confirmacao[0].insertId;
-
             return response.status(200).json({confirma:'Cadastro de Instituição realizado com sucesso', message: insti_id});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
@@ -34,7 +33,6 @@ module.exports = {
             const sql = 'UPDATE casa_crianca SET insti_nome = ?, insti_cnpj = ? WHERE insti_id = ?;';
             const values = [insti_nome, insti_cnpj, insti_id];
             const atualizacao = await db.query(sql, values);
-
             return response.status(200).json({confirma:'Sucesso', message: 'Dados atualizados'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
@@ -43,12 +41,9 @@ module.exports = {
     async excluirCasaCrianca(request, response){
         try {
             const { insti_id } = request.params;
-
             const sql = 'DELETE FROM casa_crianca WHERE insti_id = ?';
             const values = [insti_id];
             await db.query(sql, values);
-
-
             return response.status(200).json({confirma:'Sucesso', message: 'Instituição com id' + insti_id + ' excluido com sucesso'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});

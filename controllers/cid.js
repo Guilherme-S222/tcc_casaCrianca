@@ -20,7 +20,6 @@ module.exports = {
             const values = [cid_cid, cid_descri];
             const confirmacao = await db.query(sql, values);
             const cid_id = confirmacao[0].insertId;
-            
             return response.status(200).json({confirma:'Cadastro de cid realizado com sucesso', message: cid_id});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
@@ -33,7 +32,6 @@ module.exports = {
             const sql = 'UPDATE cid SET cid_cid = ?, cid_descri = ? WHERE cid_id = ?;';
             const values = [cid_cid, cid_descri, cid_id];
             const atualizacao = await db.query(sql, values);
-
             return response.status(200).json({confirma:'Sucesso', message: 'Dados atualizados'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
@@ -42,11 +40,9 @@ module.exports = {
     async excluirCid(request, response){
         try {
             const { cid_id } = request.params;
-
             const sql = 'DELETE FROM cid WHERE cid_id = ?';
             const values = [cid_id];
             await db.query(sql, values);
-
             return response.status(200).json({confirma:'Sucesso', message: 'Cid com id ' + cid_id + ' excluido com sucesso'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
