@@ -40,7 +40,6 @@ module.exports = {
     async excluirEndereco(request, response){
         try {
             const { enderec_id } = request.params;
-
             const sql = 'DELETE FROM endereco WHERE enderec_id = ?';
             const values = [enderec_id];
             await db.query(sql, values);

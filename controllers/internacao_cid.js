@@ -15,6 +15,8 @@ module.exports = {
     },
     async cadastrarInternacaoCid(request, response){
         try {
+            const { intercid_id,intern_id_intercid,cid_id_intercid,intercid_evento,intercid_status } = request.body;
+            const sql = 'INSERT INTO internacao_cid (intercid_id,intern_id_intercid,cid_id_intercid,intercid_evento,intercid_status)'
             return response.status(200).json({confirma:'cadastrarInternação Cid'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
