@@ -32,33 +32,33 @@ router.delete('/endereco/:enderec_id', endereco.excluirEndereco);
 
 router.get('/internacao_cid', internacaoCid.listarInternacaoCid);
 router.post('/internacao_cid', internacaoCid.cadastrarInternacaoCid);
-router.patch('/internacao_cid', internacaoCid.editarInternacaoCid);
-router.delete('/internacao_cid', internacaoCid.excluirInternacaoCid);
+router.patch('/internacao_cid/:intercid_id', internacaoCid.editarInternacaoCid);
+router.delete('/internacao_cid/:intercid_id', internacaoCid.excluirInternacaoCid);
 
 router.get('/internacao', internacao.listarInternacao);
 router.post('/internacao', internacao.cadastrarInternacao);
-router.patch('/internacao', internacao.editarInternacao);
-router.delete('/internacao', internacao.exluirInternacao);
+router.patch('/internacao/:intern_id', internacao.editarInternacao);
+router.delete('/internacao/:intern_id', internacao.exluirInternacao);
 
 router.get('/medico', medico.listarMedico);
 router.post('/medico', medico.cadastrarMedico);
-router.patch('/medico', medico.editarMedico);
-router.delete('/medico', medico.excluirMedico);
+router.patch('/medico/:medic_crm', medico.editarMedico);
+router.delete('/medico/:medic_crm', medico.excluirMedico);
 
 router.get('/pacientes', pacientes.listarPacientes);
 router.post('/pacientes', pacientes.cadastrarPacientes);
-router.patch('/pacientes', pacientes.editarPacientes);
-router.delete('/pacientes', pacientes.excluirPacientes);
+router.patch('/pacientes/:pct_pront', pacientes.editarPacientes);
+router.delete('/pacientes/:pct_pront', pacientes.excluirPacientes);
 
 router.get('/prorrogacao', prorrogacao.listarProrrogacao);
 router.post('/prorrogacao', prorrogacao.cadastrarProrrogacao);
-router.patch('/prorrogacao', prorrogacao.editarProrrogacao);
-router.delete('/prorrogacao', prorrogacao.excluirProrrogacao);
+router.patch('/prorrogacao/:prorrog_id', prorrogacao.editarProrrogacao);
+router.delete('/prorrogacao/:prorrog_id', prorrogacao.excluirProrrogacao);
 
 router.get('/transferencia', transferencia.listarTransferencia);
 router.post('/transferencia', transferencia.cadastrarTransferencia);
-router.patch('/transferencia', transferencia.editarTransferencia);
-router.delete('/transferencia', transferencia.excluirTransferencia);
+router.patch('/transferencia/:transf_id', transferencia.editarTransferencia);
+router.delete('/transferencia/:transf_id', transferencia.excluirTransferencia);
 
 router.get('/usuario', usuario.listarUsuario);
 router.post('/usuario', usuario.cadastrarUsuario);

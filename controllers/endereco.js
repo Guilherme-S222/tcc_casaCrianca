@@ -43,7 +43,7 @@ module.exports = {
             const sql = 'DELETE FROM endereco WHERE enderec_id = ?';
             const values = [enderec_id];
             await db.query(sql, values);
-            return response.status(200).json({confirma:'Sucesso', message: 'Endereço com id' + enderec_id + ' excluido com sucesso'});
+            return response.status(200).json({confirma:'Sucesso', message: 'Endereço com id ' + enderec_id + ' excluido com sucesso'});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
