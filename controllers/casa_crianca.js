@@ -2,6 +2,7 @@ const { json } = require("express");
 const db = require ("../database/connection");
 
 module.exports = {
+    // METODO GET
     async listarCasaCrianca(request, response){
         try {
             const sql = 'SELECT insti_id, insti_nome, insti_cnpj FROM casa_crianca;';
@@ -13,6 +14,7 @@ module.exports = {
             return response.status(500).json('Erro');
         }
     },
+    // METODO POST
     async cadastrarCasaCrianca(request, response){
         try {
 
@@ -26,6 +28,7 @@ module.exports = {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
+    // METADO PATCH
     async editarCasaCrianca(request, response){
         try {
             const { insti_nome, insti_cnpj } = request.body;
@@ -38,6 +41,7 @@ module.exports = {
             return response.status(500).json({confirma: 'Erro', message: error});
         }
     },
+    // METODO DELETE
     async excluirCasaCrianca(request, response){
         try {
             const { insti_id } = request.params;
