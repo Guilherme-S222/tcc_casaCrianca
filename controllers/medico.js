@@ -18,7 +18,7 @@ module.exports = {
 			//parei aqui
 			const { medic_nome,medic_cpf,medic_especi,medic_tel } = request.body;
 			const sql = 'INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) VALUES (?, ?, ?, ?, ?)';
-			const values = [ medic_nome, medic_cpf, medic_especi, medic_tel];
+			const values = [ medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel];
 			const confirmacao = await db.query(sql, values);
 			const medic_crm = confirmacao[0].insertId;
 			return response.status(200).json({confirma: 'Cadastro realizado com sucesso!', message: medic_crm});
