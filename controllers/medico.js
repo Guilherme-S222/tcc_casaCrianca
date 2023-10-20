@@ -15,7 +15,7 @@ module.exports = {
     },
     async cadastrarMedico(request, response){
         try {
-			//parei aqui
+			// NÃO ESTÁ FUNCIONANDO! (ERRO 500)
 			const { medic_nome,medic_cpf,medic_especi,medic_tel } = request.body;
 			const sql = 'INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) VALUES (?, ?, ?, ?, ?)';
 			const values = [ medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel];
