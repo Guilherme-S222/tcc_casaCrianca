@@ -20,9 +20,10 @@ module.exports = {
 			const values = [pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad];
 			const confirmacao = await db.query(sql, values);
 			const pct_pront = confirmacao[0].insertId;
-			return response.status(200).json({confirma: 'Cadastro realizado com sucesso!', message: pct_pront});
+			return response.status(200).json({confirma: true, message: 'Cadastro realizado com sucesso!', dados: pct_pront});
 		} catch (error) {
-			return response.status(500).json({confirma: 'Erro', message: error});
+			console.log(error);
+			return response.status(500).json({confirma: false, message: error.message});
 		}
 	},
     async editarPacientes(request, response){

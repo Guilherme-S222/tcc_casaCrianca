@@ -11,7 +11,7 @@ app.use(router);
 
 //const porta = process.env.PORT || 3333;
 
-const porta = 3306;
+const porta = 3333;
 
 //define a porta - ver qual está disponível no servidor
 app.listen(porta, () =>{
