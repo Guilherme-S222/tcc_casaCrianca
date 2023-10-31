@@ -2,6 +2,7 @@ const { json } = require("express");
 const db = require ("../database/connection");
 
 module.exports = {
+	//METODO GET
     async listarPacientes(request, response){
         try {
             const sql = 'SELECT pct_pront, pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad FROM pacientes;';
@@ -10,9 +11,10 @@ module.exports = {
             //console.log ('tam:' + instituicoes[0].length);
             return response.status(200).json({'nItens': nReg, 'Itens': pacientes[0]});
         } catch (error) {
-            return response.status(500).json({confirma: 'Erro', message: error});
+            return response.status(500).json({confirma: 'Erro', message: error.message});
         }
     },
+	//METODO POST
     async cadastrarPacientes(request, response){
         try {
 			const { pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad } = request.body;
@@ -26,6 +28,7 @@ module.exports = {
 			return response.status(500).json({confirma: false, message: error.message});
 		}
 	},
+	//METODO PUT
     async editarPacientes(request, response){
         try {
 			const { pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad } = request.body;
@@ -35,9 +38,10 @@ module.exports = {
 			const atualizacao = await db.query (sql, values);
 			return response.status(200).json({confirma: 'Cadastro atualizado com sucesso!', message: 'Dados atualizados'});
 		} catch (error) {
-			return response.status(500).json({confirma: 'Erro', message: error});
+			return response.status(500).json({confirma: 'Erro', message: error.message});
 		}
 	},
+	//METODO DELETE
     async excluirPacientes(request, response){
         try {
 			const { pct_pront } = request.params;
@@ -46,7 +50,7 @@ module.exports = {
 			await db.query(sql, values);
 			return response.status(200).json ({confirma:'Cadastro excluído com sucesso!', message: 'Registo com id ' + pct_pront + ' excluído com sucesso'});
 		} catch (error) {
-			return response.status(500).json({confirma: 'Erro', message: error});
+			return response.status(500).json({confirma: 'Erro', message: error.message});
 		}
 	},
 };
