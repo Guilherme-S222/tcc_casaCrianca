@@ -20,9 +20,10 @@ module.exports = {
 			const values = [intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern];
 			const confirmacao = await db.query(sql, values);
 			const intern_id = confirmacao[0].insertId;
-			return response.status(200).json({confirma: 'Cadastro realizado com sucesso!', message: intern_id});
+			return response.status(200).json({confirma: 'Internação cadastrada com sucesso!', dados: intern_id});
 		} catch (error) {
-			return response.status(500).json({confirma: 'Erro', message: error});
+			console.log(error);
+			return response.status(500).json({confirma: false, message: error.message});
 		}
 	},
     async editarInternacao(request, response){
