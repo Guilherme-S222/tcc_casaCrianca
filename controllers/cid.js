@@ -20,9 +20,10 @@ module.exports = {
             const values = [cid_cid, cid_descri];
             const confirmacao = await db.query(sql, values);
             const cid_id = confirmacao[0].insertId;
-            return response.status(200).json({confirma:'Cadastro de cid realizado com sucesso', message: cid_id});
+            return response.status(200).json({confirma: true, message: 'Cadastro de cid realizado com sucesso', dados: cid_id});
         } catch (error) {
-            return response.status(500).json({confirma: 'Erro', message: error});
+            console.log(error);
+            return response.status(500).json({confirma: false, message: error.message});
         }
     },
     async editarCid(request, response){
