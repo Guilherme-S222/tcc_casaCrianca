@@ -20,9 +20,10 @@ module.exports = {
             const values = [intern_id_intercid,cid_id_intercid,intercid_evento,intercid_status];
             const confirmacao = await db.query(sql, values);
             const intercid_id = confirmacao[0].insertId;
-            return response.status(200).json({confirma:'Cadastro de Internaçao Cid realizado com sucesso', message: intercid_id});
+            return response.status(200).json({confirma: true, message: 'Cadastro de Internaçao Cid realizado com sucesso', dados: intercid_id});
         } catch (error) {
-            return response.status(500).json({confirma: 'Erro', message: error});
+            console.log(error);
+            return response.status(500).json({confirma: false, message: error.message});
         }
     },
     async editarInternacaoCid(request, response){
