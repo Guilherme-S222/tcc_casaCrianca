@@ -20,9 +20,10 @@ module.exports = {
             const values = [enderec_rua, enderec_num, enderec_bairro, enderec_complem, enderec_cidade, enderec_cep, enderec_estado, pct_pront_enderec];
             const confirmacao = await db.query(sql, values);
             const enderec_id = confirmacao[0].insertId;
-            return response.status(200).json({confirma:'Cadastro de endereço realizado com sucesso', message: "ID: " + enderec_id});
+            return response.status(200).json({confirma: true, message: 'Cadastro de endereço realizado com sucesso', dados: enderec_id});
         } catch (error) {
-            return response.status(500).json({confirma: 'Erro', message: error});
+            console.log(error);
+            return response.status(500).json({confirma: false, message: error.message});
         }
     },
     async editarEndereco(request, response){

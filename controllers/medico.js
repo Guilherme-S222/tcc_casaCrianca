@@ -21,9 +21,10 @@ module.exports = {
 			const values = [ medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel];
 			const confirmacao = await db.query(sql, values);
 			const medic_crm = confirmacao[0].insertId;
-			return response.status(200).json({confirma: 'Cadastro realizado com sucesso!', message: medic_crm});
+			return response.status(200).json({confirma: true, message: 'Cadastro realizado com sucesso!', dados: medic_crm});
 		} catch (error) {
-			return response.status(500).json({confirma: 'Erro', message: error});
+			console.log(error);
+			return response.status(500).json({confirma: false, message: error.message});
 		}
 	},
     async editarMedico(request, response){

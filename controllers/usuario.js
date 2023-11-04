@@ -26,9 +26,10 @@ module.exports = {
                 //Exibe o id do registro inserido
             const user_id = confirmacao[0].insertId;
                 //mensagem de retorno no formato JSON
-            return response.status(200).json({confirma:'Cadastro de usuário realizado com sucesso', message: user_id});
+            return response.status(200).json({confirma: true, message: 'Cadastro de usuário realizado com sucesso', dados: user_id});
         } catch (error) {
-            return response.status(500).json({confirma: 'Erro', message: error});
+            console.log(error);
+            return response.status(500).json({confirma: false, message: error.message});
         }
     },
     async editarUsuario(request, response){
