@@ -16,14 +16,14 @@ module.exports = {
     async cadastrarMedico(request, response){
         try {
 			// NÃO ESTÁ FUNCIONANDO! (ERRO 500)
-			const { medic_nome,medic_cpf,medic_especi,medic_tel } = request.body;
+			const { medic_crm, medic_nome,medic_cpf,medic_especi,medic_tel } = request.body;
 			const sql = 'INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) VALUES (?, ?, ?, ?, ?)';
 			const values = [ medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel];
 			const confirmacao = await db.query(sql, values);
-			const medic_crm = confirmacao[0].insertId;
-			return response.status(200).json({confirma: true, message: 'Cadastro realizado com sucesso!', dados: medic_crm});
+			const medic_id = confirmacao[0].insertId;
+			return response.status(200).json({confirma: true, message: 'Cadastro realizado com sucesso!'});
 		} catch (error) {
-			console.log(error);
+			console.log(error.message);
 			return response.status(500).json({confirma: false, message: error.message});
 		}
 	},
