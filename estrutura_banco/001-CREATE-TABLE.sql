@@ -18,6 +18,8 @@ CREATE TABLE `pacientes` (
 	`pct_dataexp` DATE NOT NULL,
 	`pct_orgemissor` varchar (10) NOT NULL,
 	`pct_dtcad` DATETIME NOT NULL,
+	`pct_status` bit NOT NULL,
+	`pct_tel` varchar (11),
 	PRIMARY KEY (`pct_pront`)
 );
 
@@ -72,6 +74,7 @@ CREATE TABLE `transferencia` (
 );
 
 CREATE TABLE `medico` (
+	`medic_id` int NOT NULL AUTO_INCREMENT UNIQUE,
 	`medic_crm` varchar (10) NOT NULL UNIQUE,
 	`medic_nome` varchar (50) NOT NULL,
 	`medic_cpf` varchar (11) NOT NULL UNIQUE,
