@@ -4,7 +4,7 @@ const db = require ("../database/connection");
 module.exports = {
     async listarMedico(request, response){
         try {
-            const sql = 'SELECT medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel FROM medico;';
+            const sql = 'SELECT medic_id, medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel FROM medico;';
             const medico = await db.query(sql);
             const nReg = medico[0].length;
             //console.log ('tam:' + instituicoes[0].length);
@@ -15,13 +15,12 @@ module.exports = {
     },
     async cadastrarMedico(request, response){
         try {
-			// NÃO ESTÁ FUNCIONANDO! (ERRO 500)
 			const { medic_crm, medic_nome,medic_cpf,medic_especi,medic_tel } = request.body;
 			const sql = 'INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) VALUES (?, ?, ?, ?, ?)';
 			const values = [ medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel];
 			const confirmacao = await db.query(sql, values);
 			const medic_id = confirmacao[0].insertId;
-			return response.status(200).json({confirma: true, message: 'Cadastro realizado com sucesso!'});
+			return response.status(200).json({confirma: true, message: 'Cadastro realizado com sucesso!', dados: medic_id});
 		} catch (error) {
 			console.log(error.message);
 			return response.status(500).json({confirma: false, message: error.message});
@@ -29,10 +28,10 @@ module.exports = {
 	},
     async editarMedico(request, response){
         try {
-			const { medic_nome, medic_cpf, medic_especi, medic_tel } = request.body;
-			const { medic_crm } = request.params;
-			const sql = 'UPDATE medico SET medic_nome = ?, medic_cpf = ?, medic_especi = ?, medic_tel = ? WHERE medic_crm = ?;';
-			const values = [medic_nome, medic_cpf, medic_especi, medic_tel, medic_crm];
+			const { medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel } = request.body;
+			const { medic_id } = request.params;
+			const sql = 'UPDATE medico SET medic_crm, medic_nome = ?, medic_cpf = ?, medic_especi = ?, medic_tel = ? WHERE medic_id = ?;';
+			const values = [medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel, medic_id];
 			const atualizacao = await db.query (sql, values);
 			return response.status(200).json({confirma: 'Cadastro atualizado com sucesso!', message: 'Dados atualizados'});
 		} catch (error) {
