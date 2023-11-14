@@ -5,7 +5,7 @@ module.exports = {
 	//METODO GET
     async listarPacientes(request, response){
         try {
-            const sql = 'SELECT pct_pront, pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad FROM pacientes;';
+            const sql = 'SELECT pct_pront, pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad, pct_status, pct_tel FROM pacientes;';
             const pacientes = await db.query(sql);
             const nReg = pacientes[0].length;
             //console.log ('tam:' + instituicoes[0].length);
@@ -17,9 +17,9 @@ module.exports = {
 	//METODO POST
     async cadastrarPacientes(request, response){
         try {
-			const { pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad } = request.body;
-			const sql = 'INSERT INTO pacientes (pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-			const values = [pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad];
+			const { pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad, pct_status, pct_tel } = request.body;
+			const sql = 'INSERT INTO pacientes (pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad, pct_status, pct_tel) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+			const values = [pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad, pct_status, pct_tel];
 			const confirmacao = await db.query(sql, values);
 			const pct_pront = confirmacao[0].insertId;
 			return response.status(200).json({confirma: true, message: 'Cadastro realizado com sucesso!', dados: pct_pront});
@@ -31,10 +31,10 @@ module.exports = {
 	//METODO PUT
     async editarPacientes(request, response){
         try {
-			const { pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad } = request.body;
+			const { pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad, pct_status, pct_tel } = request.body;
 			const { pct_pront } = request.params;
-			const sql = 'UPDATE pacientes SET pct_cpf = ?, pct_nome = ?, pct_sexo = ?, pct_sus = ?, pct_cns = ?, pct_dtnasc = ?, pct_aih = ?, pct_bpc = ?, pct_aposent = ?, pct_filiacao = ?, pct_natural = ?, pct_cor = ?, pct_rg = ?, pct_dataexp = ?, pct_orgemissor = ?, pct_dtcad = ? WHERE pct_pront = ?;';
-			const values = [pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad, pct_pront];
+			const sql = 'UPDATE pacientes SET pct_cpf = ?, pct_nome = ?, pct_sexo = ?, pct_sus = ?, pct_cns = ?, pct_dtnasc = ?, pct_aih = ?, pct_bpc = ?, pct_aposent = ?, pct_filiacao = ?, pct_natural = ?, pct_cor = ?, pct_rg = ?, pct_dataexp = ?, pct_orgemissor = ?, pct_dtcad = ?, pct_status = ?, pct_tel = ? WHERE pct_pront = ?;';
+			const values = [pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad, pct_status, pct_tel, pct_pront];
 			const atualizacao = await db.query (sql, values);
 			return response.status(200).json({confirma: 'Cadastro atualizado com sucesso!', message: 'Dados atualizados'});
 		} catch (error) {
@@ -42,6 +42,7 @@ module.exports = {
 		}
 	},
 	//METODO DELETE
+	// VAI INATIVAR AO INVÉS DE EXCLUIR
     async excluirPacientes(request, response){
         try {
 			const { pct_pront } = request.params;
