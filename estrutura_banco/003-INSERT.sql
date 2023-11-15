@@ -5,20 +5,12 @@ INSERT INTO pacientes (pct_pront,pct_cpf,pct_nome,pct_sexo,pct_sus,pct_cns,pct_d
 VALUES ("","","","","","","","","","","","","","","","","");
 
 
-INSERT INTO pacientes (pct_pront, pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad)
-VALUES ('1', '12345678901', 'João da Silva', 'Masculino', '123456789012345', '123456789012345', '1990-05-15', '1234567890123', 'Não', 'Não', 'Maria da Silva', 'São Paulo', 'Branco', '12345678', '2010-02-28', 'SSP', '2023-08-08 08:00:00');
+INSERT INTO pacientes (pct_pront, pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad, pct_status, pct_tel)
+VALUES ('1', '12345678901', 'João da Silva', 'Masculino', '123456789012345', '123456789012345', '1990-05-15', '1234567890123', 'Não', 'Não', 'Maria da Silva', 'São Paulo', 'Branco', '12345678', '2010-02-28', 'SSP', '2023-08-08 08:00:00', 1, '18996000000');
 
-INSERT INTO pacientes (pct_pront, pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad)
-VALUES ('2', '98765432101', 'Ana Santos', 'Feminino', '987654321098765', '987654321098765', '1985-09-10', '9876543210123', 'Sim', 'Não', 'Carla Santos', 'Rio de Janeiro', 'Pardo', '87654321', '2008-11-20', 'SSP', '2023-08-08 09:00:00');
 
-INSERT INTO pacientes (pct_pront, pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad)
-VALUES ('3', '45678912301', 'Marcos Oliveira', 'Masculino', '456789123045678', '456789123045678', '1978-03-25', '4567891230123', 'Sim', 'Sim', 'Ana Oliveira', 'Belo Horizonte', 'Negro', '65432198', '2005-06-10', 'SSP', '2023-08-09 10:00:00');
 
-INSERT INTO pacientes (pct_pront, pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad)
-VALUES ('4', '78901234501', 'Maria Souza', 'Feminino', '789012345067890', '789012345067890', '1995-12-18', '7890123450123', 'Não', 'Sim', 'Paulo Souza', 'Salvador', 'Amarelo', '98765432', '2015-08-05', 'SSP', '2023-08-09 16:00:00');
 
-INSERT INTO pacientes (pct_pront, pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad)
-VALUES ('5', '23456789012', 'Carlos Ferreira', 'Masculino', '234567890123456', '234567890123456', '2000-11-02', '2345678901234', 'Não', 'Não', 'Lucia Ferreira', 'Porto Alegre', 'Branco', '34567890', '2020-03-15', 'SSP', '2023-08-10 19:00:00');
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -52,24 +44,10 @@ VALUES ("#","0000-00-00 00:00:00","0000-00-00 00:00:00","###","###","###","#");
 
 
 INSERT INTO internacao
-(intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern)
-VALUES ("1","2023-08-01 08:00:00", NULL,NULL,"12345","1","1");
+(intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern)
+VALUES ("1","2023-08-01 08:00:00", NULL,NULL,"1","1","1");
 
-INSERT INTO internacao
-(intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern)
-VALUES ("2","2023-08-01 08:30:00",NULL,NULL,"54321","1","2");
 
-INSERT INTO internacao
-(intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern)
-VALUES ("3","2023-08-03 09:15:00",NULL,NULL,"67890","2","3");
-
-INSERT INTO internacao
-(intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern)
-VALUES ("4","2023-08-05 09:00:00",NULL,NULL,"23456","5","4");
-
-INSERT INTO internacao
-(intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern)
-VALUES ("5","2023-08-08 15:00:00",NULL,NULL,"67890","4","5");
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -137,35 +115,10 @@ INSERT INTO medico
 VALUES ("","","","","");
 
 
-INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('12345', 'Dr. João Silva', '12345678901', 'Cardiologia', '11 12345678');
+INSERT INTO medico (medic_id, medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
+VALUES ('1','12345', 'Dr. João Silva', '12345678901', 'Cardiologia', '11 12345678');
 
-INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('54321', 'Dra. Maria Santos', '98765432101', 'Clínica Geral', '22 23456789');
 
-INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('67890', 'Dr. Pedro Oliveira', '45678912301', 'Ortopedia', '33 34567890');
-
-INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('45678', 'Dra. Ana Souza', '78901234501', 'Ginecologia', '44 45678901');
-
-INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('98765', 'Dr. Marcos Ferreira', '23456789012', 'Dermatologia', '55 56789012');
-
-INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('23456', 'Dra. Carla Mendes', '34567890123', 'Pediatria', '66 67890123');
-
-INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('78901', 'Dr. Lucas Almeida', '12345678601', 'Neurologia', '77 78901234');
-
-INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('34567', 'Dra. Sandra Lima', '98765442101', 'Oftalmologia', '88 89012345');
-
-INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('89012', 'Dr. Rafael Souza', '95678912301', 'Cirurgia Geral', '99 90123456');
-
-INSERT INTO medico (medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel) 
-VALUES ('66890', 'Dra. Camila Martins', '78701234501', 'Psiquiatria', '00 12345678');
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

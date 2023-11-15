@@ -4,7 +4,7 @@ const db = require ("../database/connection");
 module.exports = {
     async listarInternacao(request, response){
         try {
-            const sql = 'SELECT intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern FROM internacao;';
+            const sql = 'SELECT intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern FROM internacao;';
             const internacao = await db.query(sql);
             const nReg = internacao[0].length;
             //console.log ('tam:' + instituicoes[0].length);

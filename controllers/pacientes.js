@@ -5,7 +5,7 @@ module.exports = {
 	//METODO GET
     async listarPacientes(request, response){
         try {
-            const sql = 'SELECT pct_pront, pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad, pct_status, pct_tel FROM pacientes;';
+            const sql = 'SELECT pct_pront, pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad, pct_status = 1 AS pct_status, pct_tel FROM pacientes;';
             const pacientes = await db.query(sql);
             const nReg = pacientes[0].length;
             //console.log ('tam:' + instituicoes[0].length);
