@@ -46,6 +46,7 @@ router.patch('/medico/:medic_crm', medico.editarMedico);
 router.delete('/medico/:medic_crm', medico.excluirMedico);
 
 router.get('/pacientes', pacientes.listarPacientes);
+// router.get('/pacientes/:pct_pront', pacientes.listarPacientes);
 router.post('/pacientes', pacientes.cadastrarPacientes);
 router.patch('/pacientes/:pct_pront', pacientes.editarPacientes);
 router.delete('/pacientes/:pct_pront', pacientes.excluirPacientes);

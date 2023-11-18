@@ -5,11 +5,15 @@ module.exports = {
 	//METODO GET
     async listarPacientes(request, response){
         try {
-            const sql = 'SELECT pct_pront, pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad, pct_status = 1 AS pct_status, pct_tel FROM pacientes;';
-            const pacientes = await db.query(sql);
+			const { pct_pront = 0 } = request.query;
+            const sqlAll = 'SELECT pct_pront, pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad, pct_status = 1 AS pct_status, pct_tel FROM pacientes;';
+            const sqlEdt = 'SELECT pct_pront, pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad, pct_status = 1 AS pct_status, pct_tel FROM pacientes WHERE pct_pront = ?;'; 
+			const sql = pct_pront === 0 ? sqlAll : sqlEdt; 
+			const values = [pct_pront];
+            const pacientes = await db.query(sql, values);
             const nReg = pacientes[0].length;
             //console.log ('tam:' + instituicoes[0].length);
-            return response.status(200).json({'nItens': nReg, 'Itens': pacientes[0]});
+            return response.status(200).json({nItens: nReg, itens: pacientes[0]});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error.message});
         }
@@ -33,8 +37,9 @@ module.exports = {
         try {
 			const { pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad, pct_status, pct_tel } = request.body;
 			const { pct_pront } = request.params;
+			// console.log(pct_status);
 			const sql = 'UPDATE pacientes SET pct_cpf = ?, pct_nome = ?, pct_sexo = ?, pct_sus = ?, pct_cns = ?, pct_dtnasc = ?, pct_aih = ?, pct_bpc = ?, pct_aposent = ?, pct_filiacao = ?, pct_natural = ?, pct_cor = ?, pct_rg = ?, pct_dataexp = ?, pct_orgemissor = ?, pct_dtcad = ?, pct_status = ?, pct_tel = ? WHERE pct_pront = ?;';
-			const values = [pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad, pct_status, pct_tel, pct_pront];
+			const values = [pct_cpf, pct_nome, pct_sexo, pct_sus, pct_cns, pct_dtnasc, pct_aih, pct_bpc, pct_aposent, pct_filiacao, pct_natural, pct_cor, pct_rg, pct_dataexp, pct_orgemissor, pct_dtcad, parseInt(pct_status), pct_tel, pct_pront];
 			const atualizacao = await db.query (sql, values);
 			return response.status(200).json({confirma: 'Cadastro atualizado com sucesso!', message: 'Dados atualizados'});
 		} catch (error) {
