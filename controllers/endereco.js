@@ -4,8 +4,12 @@ const db = require ("../database/connection");
 module.exports = {
     async listarEndereco(request, response){
         try {
-            const sql = 'SELECT enderec_id,enderec_rua,enderec_num,enderec_bairro,enderec_complem,enderec_cidade,enderec_cep,enderec_estado,pct_pront_enderec FROM endereco;';
-            const endereco = await db.query(sql);
+            const { pct_pront_enderec = 0 } = request.query;
+            const sqlAll = 'SELECT enderec_id,enderec_rua,enderec_num,enderec_bairro,enderec_complem,enderec_cidade,enderec_cep,enderec_estado,pct_pront_enderec FROM endereco;';
+            const sqlEdt = 'SELECT enderec_id,enderec_rua,enderec_num,enderec_bairro,enderec_complem,enderec_cidade,enderec_cep,enderec_estado,pct_pront_enderec FROM endereco WHERE pct_pront_enderec = ?;'
+            const sql = pct_pront_enderec === 0 ? sqlAll : sqlEdt;
+            const values = [pct_pront_enderec];
+            const endereco = await db.query(sql, values);
             const nReg = endereco[0].length;
             //console.log ('tam:' + instituicoes[0].length);
             return response.status(200).json({'nItens': nReg, 'Itens': endereco[0]});
