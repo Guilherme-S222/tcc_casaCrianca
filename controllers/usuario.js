@@ -16,7 +16,7 @@ module.exports = {
     async cadastrarUsuario(request, response){
         try {
                 //parâmetros passados via corpo da requisição
-            const { user_nome,user_senha,insti_id_user } = request.body;
+            const { user_nome ,user_senha, insti_id_user } = request.body;
                 //instrução sql para inserção
             const sql = 'INSERT INTO usuario (user_nome, user_senha, insti_id_user) VALUES (?, ?, ?)';
                 //definição de array com os parâmetros que receberam os valores do front-end

@@ -13,6 +13,7 @@ const pacientes = require('../controllers/pacientes');
 const prorrogacao = require('../controllers/prorrogacao');
 const transferencia = require('../controllers/transferencia');
 const usuario = require('../controllers/usuario');
+const login = require('../controllers/login');
 
 // definição de rotas
 router.get('/casa_crianca', casa_crianca.listarCasaCrianca);
@@ -65,5 +66,7 @@ router.get('/usuario', usuario.listarUsuario);
 router.post('/usuario', usuario.cadastrarUsuario);
 router.patch('/usuario/:user_id', usuario.editarUsuario);
 router.delete('/usuario/:user_id', usuario.excluirUsuario);
+
+router.post('/login', login.session);
 
 module.exports = router;
