@@ -13,12 +13,11 @@ module.exports = {
 
             if (usuario[0].length > 0){
                 logar = true;
-                
             }
             if (logar == true){
                 return response.status(200).json({confirma: true, id: usuario[0][0].user_id, nome: usuario[0][0].user_nome});
             } else {
-                return response.status(200).json({confirma: false, message: 'Dados de login incorretos!'});
+                return response.status(200).json({confirma: false, message: 'Usuário e senha não conferem!'});
             }
         } catch (error){
             return response.status(500).json({confirma: 'Erro', message: error});
