@@ -70,3 +70,22 @@ router.delete('/usuario/:user_id', usuario.excluirUsuario);
 router.post('/login', login.session);
 
 module.exports = router;
+
+/* Explicação do código:
+
+### Rotas (Routes):
+
+No contexto de uma aplicação web, as rotas são URLs específicas que o servidor pode lidar. Em uma aplicação Node.js com Express.js, as rotas são definidas para especificar como o servidor deve responder a diferentes requisições HTTP em URLs específicos.
+
+### Express.js:
+
+É um framework web para Node.js que simplifica o processo de criação de aplicativos web e APIs. Ele fornece funcionalidades para definição de rotas, manipulação de requisições e respostas, e muito mais.
+
+### Router (Roteador):
+
+O objeto express.Router() é uma instância de um sistema de roteamento do Express. Ele permite que você defina grupos de rotas e as use em diferentes partes do seu aplicativo.
+
+Definição de Rotas:
+
+Para cada entidade no sistema (casa_crianca, cid, endereco, etc.), há rotas HTTP definidas para diferentes operações CRUD (Create, Read, Update, Delete).
+*/

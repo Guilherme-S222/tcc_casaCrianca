@@ -57,3 +57,8 @@ module.exports = {
         }
     },
 };
+
+/*
+EXPLICANDO O CÓDIGO =>
+Controller é um componente que manipula a lógica de negócio e os dados de uma aplicação. Ele é responsável por controlar a maneira como um usuário interage com uma aplicação MVC e possui o fluxo de controle lógico para a aplicação. O controlador determina que resposta será enviada de volta ao usuário quando ele faz uma requisição.
+*/
