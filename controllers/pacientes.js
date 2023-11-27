@@ -77,6 +77,19 @@ module.exports = {
 EXPLICANDO O CÓDIGO =>
 Controller é um componente que manipula a lógica de negócio e os dados de uma aplicação. Ele é responsável por controlar a maneira como um usuário interage com uma aplicação MVC e possui o fluxo de controle lógico para a aplicação. O controlador determina que resposta será enviada de volta ao usuário quando ele faz uma requisição.
 
+O padrão de arquitetura de software MVC (Model-View-Controller) é um paradigma que separa a lógica de uma aplicação em três componentes principais, proporcionando uma estrutura organizada e modular.
+
+Model (Modelo):
+Representa a camada de dados e a lógica de negócios da aplicação. É responsável por acessar e manipular os dados, bem como notificar as Views sobre quaisquer alterações nos dados. O Modelo encapsula a lógica específica do domínio e as operações relacionadas aos dados.
+
+View (Visão):
+Representa a camada de apresentação da aplicação. A View é responsável por exibir os dados do Modelo ao usuário e por coletar a entrada do usuário. Ela não contém lógica de negócios; em vez disso, ela reflete o estado atual do Modelo. Uma aplicação pode ter várias Views para apresentar os dados de maneiras diferentes.
+
+Controller (Controlador):
+Atua como intermediário entre o Modelo e a View. O Controlador responde a eventos do usuário e modifica o estado do Modelo ou da View conforme necessário. Ele contém a lógica de controle e coordena as interações entre o Modelo e a View. O Controlador é responsável por interpretar as entradas do usuário, manipular o Modelo e atualizar a View.
+
+Ao dividir a aplicação em três componentes distintos, o padrão MVC ajuda a manter o código mais organizado, modular e facilita a manutenção e evolução da aplicação. Cada componente tem uma responsabilidade clara e pode ser desenvolvido, testado e modificado de forma independente. Isso também facilita a reutilização de código, já que os componentes podem ser substituídos ou estendidos sem afetar os outros.
+
 O código utiliza o módulo mysql2/promise para interagir com o banco de dados de forma assíncrona.
 
 As operações são envolvidas em blocos try-catch para tratamento de erros.
