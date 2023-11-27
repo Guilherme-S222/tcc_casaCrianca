@@ -35,3 +35,9 @@ try {
 } 
 
 module.exports = connection;
+
+/*
+Este código Node.js é responsável por criar e configurar uma conexão com um banco de dados MySQL usando o módulo mysql2/promise. 
+
+Esse código segue as práticas ao usar um pool de conexões para melhorar a eficiência na interação com o banco de dados. Além disso, imprime uma mensagem no console para indicar quando a conexão foi estabelecida com sucesso. 
+*/
