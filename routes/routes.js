@@ -39,7 +39,7 @@ router.delete('/internacao_cid/:intercid_id', internacaoCid.excluirInternacaoCid
 router.get('/internacao', internacao.listarInternacao);
 router.post('/internacao', internacao.cadastrarInternacao);
 router.patch('/internacao/:intern_id', internacao.editarInternacao);
-router.delete('/internacao/:intern_id', internacao.exluirInternacao);
+router.delete('/internacao/:intern_id', internacao.excluirInternacao);
 
 router.get('/medico', medico.listarMedico);
 router.post('/medico', medico.cadastrarMedico);

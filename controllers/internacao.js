@@ -31,17 +31,17 @@ module.exports = {
 	},
     async editarInternacao(request, response){
         try {
-			const { intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern } = request.body;
+			const { intern_data,intern_dtsaida,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern } = request.body;
 			const { intern_id } = request.params;
-			const sql = 'UPDATE internacao SET intern_data = ?, intern_dtsaida = ?, intern_tpsaida = ?, medic_crm_intern = ?, user_id_intern = ?, pct_pront_intern = ? WHERE intern_id = ?;';
-			const values = [intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern, intern_id];
+			const sql = 'UPDATE internacao SET intern_data = ?, intern_dtsaida = ?, intern_tpsaida = ?, medic_id_intern = ?, user_id_intern = ?, pct_pront_intern = ? WHERE intern_id = ?;';
+			const values = [intern_data,intern_dtsaida,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern, intern_id];
 			const atualizacao = await db.query (sql, values);
 			return response.status(200).json({confirma: 'Cadastro atualizado com sucesso!', message: 'Dados atualizados'});
 		} catch (error) {
 			return response.status(500).json({confirma: 'Erro', message: error});
 		}
 	},
-    async exluirInternacao(request, response){
+    async excluirInternacao(request, response){
         try {
 			const { intern_id } = request.params;
 			const sql = 'DELETE FROM internacao WHERE intern_id = ?';
