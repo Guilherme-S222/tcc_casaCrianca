@@ -4,10 +4,13 @@ const db = require ("../database/connection");
 module.exports = {
     async listarInternacao(request, response){
         try {
-            const sql = 'SELECT intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern FROM internacao;';
-            const internacao = await db.query(sql);
+			const { intern_id = 0 } = request.query;
+			const sqlAll = 'SELECT intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern FROM internacao;';
+			const sqlEdt = 'SELECT intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern FROM internacao WHERE intern_id = ?;';
+			const sql = intern_id === 0 ? sqlAll : sqlEdt;
+			const values = [intern_id];
+            const internacao = await db.query(sql, values);
             const nReg = internacao[0].length;
-            //console.log ('tam:' + instituicoes[0].length);
             return response.status(200).json({'nItens': nReg, 'Itens': internacao[0]});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error});
@@ -15,9 +18,9 @@ module.exports = {
     },
     async cadastrarInternacao(request, response){
         try {
-			const { intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern } = request.body;
-			const sql = 'INSERT INTO internacao (intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern) VALUES (?, ?, ?, ?, ?, ?)';
-			const values = [intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern];
+			const { intern_data,intern_dtsaida,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern } = request.body;
+			const sql = 'INSERT INTO internacao (intern_data,intern_dtsaida,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern) VALUES (?, ?, ?, ?, ?, ?)';
+			const values = [intern_data,intern_dtsaida,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern];
 			const confirmacao = await db.query(sql, values);
 			const intern_id = confirmacao[0].insertId;
 			return response.status(200).json({confirma: true, message: 'Internação cadastrada com sucesso!', dados: intern_id});

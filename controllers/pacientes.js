@@ -15,7 +15,6 @@ module.exports = {
 			const values = [pct_pront];
             const pacientes = await db.query(sql, values);
             const nReg = pacientes[0].length;
-            //console.log ('tam:' + instituicoes[0].length);
             return response.status(200).json({nItens: nReg, itens: pacientes[0]});
         } catch (error) {
             return response.status(500).json({confirma: 'Erro', message: error.message});
