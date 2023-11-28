@@ -39,7 +39,7 @@ VALUES ('Rua Pereira Barreto', 202, 'Bairro V', 'Bloco C', 'Assis', '56789012', 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 INSERT INTO internacao
-(intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_crm_intern,user_id_intern,pct_pront_intern)
+(intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern)
 VALUES ("#","0000-00-00 00:00:00","0000-00-00 00:00:00","###","###","###","#");
 
 
@@ -91,7 +91,7 @@ VALUES (10, 'K21', 'Doença do refluxo gastroesofágico');
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 INSERT INTO prorrogacao
-(prorrog_id,prorrog_data,intern_id_prorrog,user_id_prorrog,medic_crm_prorrog)
+(prorrog_id,prorrog_data,intern_id_prorrog,user_id_prorrog,medic_id_prorrog)
 VALUES ("","","","","");
 
 
@@ -101,7 +101,7 @@ VALUES ("","","","","");
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 INSERT INTO transferencia
-(transf_id,transf_data,medic_crm_transf,intern_id_transf,user_id_transf)
+(transf_id,transf_data,medic_id_transf,intern_id_transf,user_id_transf)
 VALUES ("","","","","");
 
 
@@ -111,7 +111,7 @@ VALUES ("","","","","");
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 INSERT INTO medico
-(medic_crm,medic_nome,medic_cpf,medic_especi,medic_tel)
+(medic_id, medic_crm, medic_nome, medic_cpf, medic_especi, medic_tel)
 VALUES ("","","","","");
 
 

@@ -41,7 +41,7 @@ CREATE TABLE `internacao` (
 	`intern_data` DATETIME NOT NULL,
 	`intern_dtsaida` DATETIME NULL,
 	`intern_tpsaida` varchar (15) NULL,
-	`medic_crm_intern` varchar (10) NOT NULL,
+	`medic_id_intern` varchar (10) NOT NULL,
 	`user_id_intern` int NOT NULL,
 	`pct_pront_intern` int NOT NULL,
 	PRIMARY KEY (`intern_id`)
@@ -54,25 +54,6 @@ CREATE TABLE `cid` (
 	PRIMARY KEY (`cid_id`)
 );
 
-CREATE TABLE `prorrogacao` (
-	`prorrog_id` int NOT NULL AUTO_INCREMENT UNIQUE,
-	`prorrog_data` DATETIME NOT NULL,
-	`intern_id_prorrog` int NOT NULL,
-	`user_id_prorrog` int NOT NULL,
-	`medic_crm_prorrog` varchar (10) NOT NULL,
-	PRIMARY KEY (`prorrog_id`)
-);
-
-
-CREATE TABLE `transferencia` (
-	`transf_id` int NOT NULL AUTO_INCREMENT UNIQUE,
-	`transf_data` DATETIME NOT NULL,
-	`medic_crm_transf` varchar (10) NOT NULL,
-	`intern_id_transf` int NOT NULL,
-	`user_id_transf` int NOT NULL,
-	PRIMARY KEY (`transf_id`)
-);
-
 CREATE TABLE `medico` (
 	`medic_id` int NOT NULL AUTO_INCREMENT UNIQUE,
 	`medic_crm` varchar (10) NOT NULL UNIQUE,
@@ -80,7 +61,7 @@ CREATE TABLE `medico` (
 	`medic_cpf` varchar (11) NOT NULL UNIQUE,
 	`medic_especi` varchar (50),
 	`medic_tel` varchar (11), 
-	PRIMARY KEY (`medic_crm`)
+	PRIMARY KEY (`medic_id`)
 );
 
 CREATE TABLE `usuario` (
@@ -98,6 +79,24 @@ CREATE TABLE `casa_crianca` (
 	PRIMARY KEY (`insti_id`)
 );
 
+CREATE TABLE `prorrogacao` (
+	`prorrog_id` int NOT NULL AUTO_INCREMENT UNIQUE,
+	`prorrog_data` DATETIME NOT NULL,
+	`intern_id_prorrog` int NOT NULL,
+	`user_id_prorrog` int NOT NULL,
+	`medic_id_prorrog` varchar (10) NOT NULL,
+	PRIMARY KEY (`prorrog_id`)
+);
+
+CREATE TABLE `transferencia` (
+	`transf_id` int NOT NULL AUTO_INCREMENT UNIQUE,
+	`transf_data` DATETIME NOT NULL,
+	`medic_id_transf` varchar (10) NOT NULL,
+	`intern_id_transf` int NOT NULL,
+	`user_id_transf` int NOT NULL,
+	PRIMARY KEY (`transf_id`)
+);
+
 CREATE TABLE `internacao_cid` (
 	`intercid_id` int NOT NULL AUTO_INCREMENT UNIQUE,
 	`intercid_evento` varchar (100) NOT NULL,
@@ -109,7 +108,7 @@ CREATE TABLE `internacao_cid` (
 
 ALTER TABLE `endereco` ADD CONSTRAINT `endereco_fk0` FOREIGN KEY (`pct_pront_enderec`) REFERENCES `pacientes`(`pct_pront`);
 
-ALTER TABLE `internacao` ADD CONSTRAINT `internacao_fk0` FOREIGN KEY (`medic_crm_intern`) REFERENCES `medico`(`medic_crm`);
+ALTER TABLE `internacao` ADD CONSTRAINT `internacao_fk0` FOREIGN KEY (`medic_id_intern`) REFERENCES `medico`(`medic_id`);
 
 ALTER TABLE `internacao` ADD CONSTRAINT `internacao_fk1` FOREIGN KEY (`user_id_intern`) REFERENCES `usuario`(`user_id`);
 
@@ -119,9 +118,9 @@ ALTER TABLE `prorrogacao` ADD CONSTRAINT `prorrogacao_fk0` FOREIGN KEY (`intern_
 
 ALTER TABLE `prorrogacao` ADD CONSTRAINT `prorrogacao_fk1` FOREIGN KEY (`user_id_prorrog`) REFERENCES `usuario`(`user_id`);
 
-ALTER TABLE `prorrogacao` ADD CONSTRAINT `prorrogacao_fk2` FOREIGN KEY (`medic_crm_prorrog`) REFERENCES `medico`(`medic_crm`);
+ALTER TABLE `prorrogacao` ADD CONSTRAINT `prorrogacao_fk2` FOREIGN KEY (`medic_id_prorrog`) REFERENCES `medico`(`medic_id`);
 
-ALTER TABLE `transferencia` ADD CONSTRAINT `transferencia_fk0` FOREIGN KEY (`medic_crm_transf`) REFERENCES `medico`(`medic_crm`);
+ALTER TABLE `transferencia` ADD CONSTRAINT `transferencia_fk0` FOREIGN KEY (`medic_id_transf`) REFERENCES `medico`(`medic_id`);
 
 ALTER TABLE `transferencia` ADD CONSTRAINT `transferencia_fk1` FOREIGN KEY (`intern_id_transf`) REFERENCES `internacao`(`intern_id`);
 
