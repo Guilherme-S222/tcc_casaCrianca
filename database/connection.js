@@ -1,12 +1,12 @@
 const mysql = require('mysql2/promise'); 
 
-// const bd_usuario = 'us_des_222_casacri'; // usuário
-// const bd_senha = 'ah7372'; // senha
-// const bd_servidor = '10.67.22.216'; // servidor
+// const bd_usuario = 'us_des_222_casacri'; // usuário etec
+// const bd_senha = 'ah7372'; // senha etec
+// const bd_servidor = '10.67.22.216'; // servidor etec
 
-const bd_usuario = 'root'; // usuário server home
-const bd_senha = '123456'; // senha server home
-const bd_servidor = 'localhost'; // server home
+const bd_usuario = 'root'; // usuário server local
+const bd_senha = '123456'; // senha server local
+const bd_servidor = 'localhost'; // server local
 
 const bd_porta = '3306'; // porta
 const bd_banco = 'bd_tcc_des_222_casacri'; // nome do banco
