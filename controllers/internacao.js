@@ -5,8 +5,8 @@ module.exports = {
     async listarInternacao(request, response){
         try {
 			const { intern_id = 0 } = request.query;
-			const sqlAll = 'SELECT intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern FROM internacao;';
-			const sqlEdt = 'SELECT intern_id,intern_data,intern_dtsaida,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern FROM internacao WHERE intern_id = ?;';
+			const sqlAll = 'SELECT intern_id, intern_data, intern_dtsaida, intern_tpsaida, medic_nome, user_nome, pct_pront, pct_nome FROM internacao JOIN medico ON medic_id_intern = medic_id JOIN usuario ON user_id_intern = user_id JOIN pacientes ON pct_pront_intern = pct_pront;';
+			const sqlEdt = 'SELECT intern_id, intern_data, intern_dtsaida, intern_tpsaida, medic_nome, user_nome, pct_pront, pct_nome FROM internacao JOIN medico ON medic_id_intern = medic_id JOIN usuario ON user_id_intern = user_id JOIN pacientes ON pct_pront_intern = pct_pront WHERE intern_id = ?;'; // SELECT SEM ALIAS
 			const sql = intern_id === 0 ? sqlAll : sqlEdt;
 			const values = [intern_id];
             const internacao = await db.query(sql, values);
