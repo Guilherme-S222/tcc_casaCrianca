@@ -4,8 +4,12 @@ const db = require ("../database/connection");
 module.exports = {
     async listarInternacaoCid(request, response){
         try {
-            const sql = 'SELECT intercid_id,intern_id_intercid,cid_id_intercid,intercid_evento,intercid_status FROM internacao_cid;';
-            const internacao_cid = await db.query(sql);
+            const { intercid_id = 0 } = request.query;
+            const sqlAll = 'SELECT intercid_id,intern_id_intercid,cid_id_intercid,intercid_evento,intercid_status FROM internacao_cid;';
+            const sqlEdt = 'SELECT intercid_id,intern_id_intercid,cid_id_intercid,intercid_evento,intercid_status FROM internacao_cid WHERE intercid_id = ?;';
+            const sql = intercid_id === 0 ? sqlAll : sqlEdt;
+            const values = [intercid_id];
+            const internacao_cid = await db.query(sql, values);
             const nReg = internacao_cid[0].length;
             //console.log ('tam:' + instituicoes[0].length);
             return response.status(200).json({'nItens': nReg, 'Itens': internacao_cid[0]});

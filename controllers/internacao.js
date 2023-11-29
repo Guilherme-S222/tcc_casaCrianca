@@ -20,7 +20,8 @@ module.exports = {
         try {
 			const { intern_data,intern_dtsaida,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern } = request.body;
 			const sql = 'INSERT INTO internacao (intern_data,intern_dtsaida,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern) VALUES (?, ?, ?, ?, ?, ?)';
-			const values = [intern_data,intern_dtsaida,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern];
+			const values = [intern_data,null,intern_tpsaida,medic_id_intern,user_id_intern,pct_pront_intern];
+			console.log(values);
 			const confirmacao = await db.query(sql, values);
 			const intern_id = confirmacao[0].insertId;
 			return response.status(200).json({confirma: true, message: 'Internação cadastrada com sucesso!', dados: intern_id});
