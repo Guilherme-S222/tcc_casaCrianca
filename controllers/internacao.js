@@ -6,7 +6,7 @@ module.exports = {
         try {
 			const { intern_id = 0 } = request.query;
 			const sqlAll = 'SELECT i.intern_id, i.intern_data, i.intern_dtsaida, i.intern_tpsaida, p.pct_pront, p.pct_nome, ic.intercid_status, c.cid_cid, c.cid_descri, m.medic_nome, u.user_nome FROM internacao i JOIN pacientes p ON i.pct_pront_intern = p.pct_pront JOIN internacao_cid ic ON i.intern_id = ic.intern_id_intercid JOIN cid c ON i.intern_id = c.cid_id JOIN medico m ON i.medic_id_intern = m.medic_id JOIN usuario u ON i.user_id_intern = u.user_id;';
-			const sqlEdt = 'SELECT i.intern_id, i.intern_data, i.intern_dtsaida, i.intern_tpsaida, p.pct_pront, p.pct_nome, ic.intercid_status, c.cid_cid, c.cid_descri, m.medic_nome, u.user_nome FROM internacao i JOIN pacientes p ON i.pct_pront_intern = p.pct_pront JOIN internacao_cid ic ON i.intern_id = ic.intern_id_intercid JOIN cid c ON i.intern_id = c.cid_id JOIN medico m ON i.medic_id_intern = m.medic_id JOIN usuario u ON i.user_id_intern = u.user_id WHERE intern_id = ?;'; // SELECT COM ALIAS
+			const sqlEdt = 'SELECT i.intern_id, i.intern_data, i.intern_dtsaida, i.intern_tpsaida, i.pct_pront_intern, p.pct_pront, p.pct_nome, ic.intercid_status, c.cid_cid, c.cid_descri, i.medic_id_intern, m.medic_nome, i.user_id_intern, u.user_nome FROM internacao i JOIN pacientes p ON i.pct_pront_intern = p.pct_pront JOIN internacao_cid ic ON i.intern_id = ic.intern_id_intercid JOIN cid c ON i.intern_id = c.cid_id JOIN medico m ON i.medic_id_intern = m.medic_id JOIN usuario u ON i.user_id_intern = u.user_id WHERE intern_id = ?;';
 			const sql = intern_id === 0 ? sqlAll : sqlEdt;
 			const values = [intern_id];
             const internacao = await db.query(sql, values);
