@@ -5,7 +5,7 @@ module.exports = {
     async listarInternacaoCid(request, response){
         try {
             const { intercid_id = 0 } = request.query;
-            const sqlAll = 'SELECT intercid_id,intern_id_intercid,cid_id_intercid,intercid_evento,intercid_status FROM internacao_cid;';
+            const sqlAll = 'SELECT intercid_id, intern_id_intercid, cid_id_intercid, intercid_evento, intercid_status FROM internacao_cid;';
             const sqlEdt = 'SELECT intercid_id,intern_id_intercid,cid_id_intercid,intercid_evento,intercid_status FROM internacao_cid WHERE intercid_id = ?;';
             const sql = intercid_id === 0 ? sqlAll : sqlEdt;
             const values = [intercid_id];
@@ -19,7 +19,7 @@ module.exports = {
     },
     async cadastrarInternacaoCid(request, response){
         try {
-            const { intern_id_intercid,cid_id_intercid,intercid_evento,intercid_status } = request.body;
+            const { intern_id_intercid, cid_id_intercid, intercid_evento, intercid_status } = request.body;
             const sql = 'INSERT INTO internacao_cid (intern_id_intercid,cid_id_intercid,intercid_evento,intercid_status) VALUES (?, ?, ?, ?)';
             const values = [intern_id_intercid,cid_id_intercid,intercid_evento,intercid_status];
             const confirmacao = await db.query(sql, values);
@@ -32,7 +32,7 @@ module.exports = {
     },
     async editarInternacaoCid(request, response){
         try {
-            const { intern_id_intercid,cid_id_intercid,intercid_evento,intercid_status } = request.body;
+            const { intern_id_intercid, cid_id_intercid, intercid_evento, intercid_status } = request.body;
             const { intercid_id } = request.params;
             const sql = 'UPDATE internacao_cid SET intern_id_intercid = ?, cid_id_intercid = ?, intercid_evento = ?, intercid_status = ? WHERE intercid_id = ?;';
             const values = [intern_id_intercid, cid_id_intercid, intercid_evento, intercid_status, intercid_id];
